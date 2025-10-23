@@ -8,112 +8,60 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="icon" href="assets/images/LOGO.png" type="image/png">
   <style>
-    :root {
-      --bg: #000;
-      --text: #e8ecf0;
-      --muted: #a8b0ba;
-      --accent: #8fd3ff;
-      --border: rgba(255,255,255,0.1);
-      --max: 1100px;
+    :root{
+      --bg:#000;--text:#e8ecf0;--muted:#a8b0ba;--accent:#8fd3ff;--border:rgba(255,255,255,.1);--max:1100px;
     }
     *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height:1.6;
-      overflow-x:hidden;
-    }
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;overflow-x:hidden}
 
-    /* Background video */
-    .bg-video{
-      position:fixed; inset:0; width:100%; height:100%;
-      object-fit:cover; z-index:-2; filter:contrast(105%) saturate(110%);
-    }
-    .overlay{
-      position:fixed; inset:0; z-index:-1;
-      background:linear-gradient(to bottom, rgba(0,0,0,.82), rgba(0,0,0,.62));
-    }
+    /* Background */
+    .bg-video{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;filter:contrast(105%) saturate(110%)}
+    .overlay{position:fixed;inset:0;z-index:-1;background:linear-gradient(to bottom,rgba(0,0,0,.82),rgba(0,0,0,.62))}
 
-    /* Header */
-    header{ padding:120px 20px 60px; }
-    .brand{
-      max-width:var(--max); margin:0 auto; display:flex; align-items:center; gap:14px;
-      background:rgba(0,0,0,.42); border:1px solid var(--border); border-radius:20px; padding:16px 18px; backdrop-filter:blur(4px);
-    }
-    .logo{
-      width:58px; height:58px; flex:0 0 auto;
-      border-radius:12px; background:#fff; display:grid; place-items:center; overflow:hidden;
-      box-shadow:0 8px 26px rgba(0,0,0,.35);
-    }
-    .logo img{ width:100%; height:100%; object-fit:contain; background:#fff }
-    .titles{ display:flex; flex-direction:column }
-    h1{ font-size:clamp(28px,4.5vw,44px); font-weight:800; letter-spacing:.5px; line-height:1.1; }
-    .subtitle{ color:var(--muted); font-size:16px; }
+    /* Header with logo */
+    header{padding:110px 20px 56px}
+    .brand{max-width:var(--max);margin:0 auto;display:flex;align-items:center;gap:14px;background:rgba(0,0,0,.42);border:1px solid var(--border);border-radius:20px;padding:14px 18px;backdrop-filter:blur(4px)}
+    .brand-logo{max-height:70px;width:auto;display:block;object-fit:contain;background:#fff;border-radius:10px;padding:6px;box-shadow:0 8px 26px rgba(0,0,0,.35)}
+    .titles{display:flex;flex-direction:column}
+    h1{font-size:clamp(28px,4.5vw,44px);font-weight:800;letter-spacing:.5px;line-height:1.1}
+    .subtitle{color:var(--muted);font-size:16px}
 
-    section{
-      max-width:var(--max); margin:auto; padding:64px 20px;
-      background:rgba(0,0,0,.42); border-radius:20px; backdrop-filter:blur(4px);
-      margin-bottom:42px; border:1px solid var(--border);
-    }
-    h2{ font-size:clamp(26px,3vw,36px); margin-bottom:20px; text-align:center; color:var(--accent); }
-    p{ margin-bottom:14px; font-size:17px; }
+    section{max-width:var(--max);margin:auto;padding:64px 20px;background:rgba(0,0,0,.42);border-radius:20px;backdrop-filter:blur(4px);margin-bottom:42px;border:1px solid var(--border)}
+    h2{font-size:clamp(26px,3vw,36px);margin-bottom:20px;text-align:center;color:var(--accent)}
+    p{margin-bottom:14px;font-size:17px}
 
-    /* Gallery */
-    .gallery{ display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); }
-    .gallery img{
-      width:100%; height:100%; object-fit:cover; border-radius:14px; border:1px solid var(--border);
-      opacity:.95; transition:opacity .35s ease, transform .35s ease;
-    }
-    .gallery img:hover{ opacity:1; transform:scale(1.01); }
+    .gallery{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+    .gallery img{width:100%;height:100%;object-fit:cover;border-radius:14px;border:1px solid var(--border);opacity:.95;transition:opacity .35s,transform .35s}
+    .gallery img:hover{opacity:1;transform:scale(1.01)}
 
-    /* Videos */
-    .videos{ display:grid; gap:20px; grid-template-columns:repeat(auto-fit,minmax(460px,1fr)); }
-    .video-card{
-      position:relative; border:1px solid var(--border); border-radius:14px; overflow:hidden; background:#000;
-      aspect-ratio:16/9;
-    }
-    .video-card video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
-    .caption{ text-align:center; color:var(--muted); font-size:14px; margin-top:8px; }
+    .videos{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(460px,1fr))}
+    .video-card{position:relative;border:1px solid var(--border);border-radius:14px;overflow:hidden;background:#000;aspect-ratio:16/9}
+    .video-card video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+    .caption{text-align:center;color:var(--muted);font-size:14px;margin-top:8px}
 
-    /* Team */
-    .team{ display:flex; flex-wrap:wrap; gap:20px; justify-content:center; text-align:center; }
-    .member{ flex:1 1 200px; background:rgba(255,255,255,.05); padding:20px; border-radius:12px; border:1px solid var(--border); }
+    .team{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;text-align:center}
+    .member{flex:1 1 200px;background:rgba(255,255,255,.05);padding:20px;border-radius:12px;border:1px solid var(--border)}
 
-    footer{
-      text-align:center; padding:40px 20px; font-size:15px; color:var(--muted);
-      border-top:1px solid var(--border); background:rgba(0,0,0,.6);
-    }
+    footer{text-align:center;padding:40px 20px;font-size:15px;color:var(--muted);border-top:1px solid var(--border);background:rgba(0,0,0,.6)}
 
-    /* Reveal on scroll */
-    .reveal{ opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s ease; will-change:opacity,transform; }
-    .reveal.visible{ opacity:1; transform:none; }
+    /* reveal */
+    .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s;will-change:opacity,transform}
+    .reveal.visible{opacity:1;transform:none}
     .gallery .reveal:nth-child(1){transition-delay:.05s}
     .gallery .reveal:nth-child(2){transition-delay:.12s}
     .gallery .reveal:nth-child(3){transition-delay:.19s}
     .gallery .reveal:nth-child(4){transition-delay:.26s}
-    @media (prefers-reduced-motion: reduce){
-      .reveal{opacity:1;transform:none;transition:none}
-      .gallery img{transition:none}
-    }
+    @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.gallery img{transition:none}}
   </style>
 </head>
 <body>
-  <!-- Background -->
-  <video class="bg-video" autoplay muted loop playsinline poster="assets/images/hero-sky.jpg">
-    <!-- Универсальный источник -->
-    <source src="assets/videos/hero-sky.mp4" type="video/mp4">
-    <!-- Запасной (.mov оставлен на случай поддержки браузером) -->
-    <source src="assets/videos/hero-sky.mov" type="video/quicktime">
-  </video>
+  <!-- Background video: источники выбираются скриптом -->
+  <video id="bgvid" class="bg-video" autoplay muted loop playsinline poster="assets/images/hero-sky.jpg"></video>
   <div class="overlay"></div>
 
-  <!-- Header with logo -->
   <header class="reveal">
     <div class="brand">
-      <div class="logo" aria-hidden="true">
-        <img src="assets/images/LOGO.png" alt="Nadykh Theater Logo">
-      </div>
+      <img class="brand-logo" src="assets/images/LOGO.png" alt="Nadykh Theater Logo">
       <div class="titles">
         <h1>Der geschlossene Himmel</h1>
         <div class="subtitle">Ein Theaterprojekt des Theaters „Nadykh“ — über Erinnerung, Verlust und Hoffnung</div>
@@ -121,7 +69,6 @@
     </div>
   </header>
 
-  <!-- About -->
   <section id="about" class="reveal">
     <h2>Über das Stück</h2>
     <p>
@@ -134,7 +81,6 @@
          style="width:100%;border-radius:16px;margin-top:20px;border:1px solid var(--border);" class="reveal">
   </section>
 
-  <!-- Gallery -->
   <section id="gallery" class="reveal">
     <h2>Fotogalerie</h2>
     <div class="gallery">
@@ -145,33 +91,21 @@
     </div>
   </section>
 
-  <!-- Videos -->
   <section id="videos" class="reveal">
     <h2>Video</h2>
     <div class="videos">
       <div class="video-card reveal">
-        <video controls preload="metadata" poster="assets/images/hero-sky.jpg" playsinline>
-          <!-- Основной источник -->
-          <source src="assets/videos/trailer-1.mp4" type="video/mp4">
-          <!-- Запасной -->
-          <source src="assets/videos/trailer-1.mov" type="video/quicktime">
-        </video>
+        <video id="trailer1" controls preload="metadata" poster="assets/images/hero-sky.jpg" playsinline></video>
       </div>
-
-      <!-- Второй ролик: добавь файл и раскомментируй блок -->
-      <!--
+      <!-- Второй ролик (раскомментируй при появлении файла)
       <div class="video-card reveal">
-        <video controls preload="metadata" poster="assets/images/hero-sky.jpg" playsinline>
-          <source src="assets/videos/trailer-2.mp4" type="video/mp4">
-          <source src="assets/videos/trailer-2.mov" type="video/quicktime">
-        </video>
+        <video id="trailer2" controls preload="metadata" poster="assets/images/hero-sky.jpg" playsinline></video>
       </div>
       -->
     </div>
-    <p class="caption">Für maximale Kompatibilität empfehlenswert ist MP4 (H.264 + AAC). MOV bleibt als Fallback.</p>
+    <p class="caption">Für maximale Kompatibilität bevorzugt der Browser MP4 (H.264). Falls nicht verfügbar, probiert er MOV.</p>
   </section>
 
-  <!-- Team -->
   <section id="team" class="reveal">
     <h2>Team</h2>
     <div class="team">
@@ -182,7 +116,6 @@
     </div>
   </section>
 
-  <!-- Contact -->
   <footer>
     © <span id="y"></span> Der geschlossene Himmel — Theaterprojekt ·
     E-Mail: <a href="mailto:info@example.com" style="color:#cfe9ff">info@example.com</a>
@@ -192,17 +125,43 @@
     // год в футере
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // плавное появление блоков при прокрутке
+    // плавное появление
     const els = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries, obs) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          obs.unobserve(e.target);
-        }
-      });
-    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.15 });
-    els.forEach(el => io.observe(el));
+    const io = new IntersectionObserver((ents, obs)=>{
+      ents.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target);} });
+    },{rootMargin:'0px 0px -10% 0px', threshold:.15});
+    els.forEach(el=>io.observe(el));
+
+    // универсальный выбор источника видео
+    function pickSource(videoEl, sources){
+      for (const s of sources){
+        if (s.type === 'auto'){ videoEl.src = s.src; return true; }
+        const t = videoEl.canPlayType(s.type);
+        if (t === 'probably' || t === 'maybe'){ videoEl.src = s.src; return true; }
+      }
+      return false;
+    }
+
+    // фон
+    const bg = document.getElementById('bgvid');
+    pickSource(bg, [
+      {src:'assets/videos/hero-sky.mp4', type:'video/mp4'},
+      {src:'assets/videos/hero-sky.mov', type:'video/quicktime'}
+    ]);
+
+    // трейлер 1
+    const v1 = document.getElementById('trailer1');
+    pickSource(v1, [
+      {src:'assets/videos/trailer-1.mp4', type:'video/mp4'},
+      {src:'assets/videos/trailer-1.mov', type:'video/quicktime'}
+    ]);
+
+    // трейлер 2 (если добавишь файл — раскомментируй ниже)
+    // const v2 = document.getElementById('trailer2');
+    // pickSource(v2, [
+    //   {src:'assets/videos/trailer-2.mp4', type:'video/mp4'},
+    //   {src:'assets/videos/trailer-2.mov', type:'video/quicktime'}
+    // ]);
   </script>
 </body>
 </html>
