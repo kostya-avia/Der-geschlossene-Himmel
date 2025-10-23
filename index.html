@@ -18,19 +18,24 @@
     .bg-video{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;filter:contrast(105%) saturate(110%)}
     .overlay{position:fixed;inset:0;z-index:-1;background:linear-gradient(to bottom,rgba(0,0,0,.82),rgba(0,0,0,.62))}
 
-    /* Header with logo */
-    header{padding:110px 20px 56px}
+    /* Header with prominent logo */
+    header{padding:96px 20px 48px}
     .brand{
-      max-width:var(--max);margin:0 auto;display:flex;align-items:center;gap:14px;
-      background:rgba(0,0,0,.42);border:1px solid var(--border);border-radius:20px;padding:14px 18px;backdrop-filter:blur(4px)
+      max-width:var(--max);margin:0 auto;display:flex;align-items:center;gap:18px;
+      background:rgba(0,0,0,.5);border:1px solid var(--border);border-radius:20px;padding:16px 20px;backdrop-filter:blur(4px)
     }
-    .brand-logo{
-      height:70px;width:auto;display:block;object-fit:contain;background:#fff;border-radius:10px;padding:6px;
-      box-shadow:0 8px 26px rgba(0,0,0,.35)
+    .logo-badge{
+      display:flex;align-items:center;justify-content:center;
+      background:#ffffff;border-radius:14px;border:1px solid rgba(0,0,0,.08);
+      padding:10px; box-shadow:0 10px 28px rgba(0,0,0,.36);
     }
-    .titles{display:flex;flex-direction:column}
-    h1{font-size:clamp(28px,4.5vw,44px);font-weight:800;letter-spacing:.5px;line-height:1.1}
+    .logo-badge img{height:96px;width:auto;object-fit:contain;display:block}
+    .titles{display:flex;flex-direction:column;gap:6px}
+    h1{font-size:clamp(30px,4.6vw,48px);font-weight:800;letter-spacing:.4px;line-height:1.1}
     .subtitle{color:var(--muted);font-size:16px}
+    @media (max-width:560px){
+      .logo-badge img{height:72px}
+    }
 
     section{
       max-width:var(--max);margin:auto;padding:64px 20px;background:rgba(0,0,0,.42);
@@ -67,16 +72,17 @@
   </style>
 </head>
 <body>
-  <!-- Background video: сначала mp4 (если будет), затем mov -->
+  <!-- Background video: теперь MP4 первым источником -->
   <video class="bg-video" autoplay muted loop playsinline poster="assets/images/hero-sky.jpg">
     <source src="assets/videos/hero-sky.mp4" type="video/mp4">
-    <source src="assets/videos/hero-sky.mov" type="video/quicktime">
   </video>
   <div class="overlay"></div>
 
   <header class="reveal">
     <div class="brand">
-      <img class="brand-logo" src="assets/images/LOGO.png" alt="Nadykh Theater Logo">
+      <div class="logo-badge">
+        <img src="assets/images/LOGO.png" alt="Nadykh Theater Logo">
+      </div>
       <div class="titles">
         <h1>Der geschlossene Himmel</h1>
         <div class="subtitle">Ein Theaterprojekt des Theaters „Nadykh“ — über Erinnerung, Verlust und Hoffnung</div>
@@ -115,21 +121,18 @@
       <div class="video-card reveal">
         <video controls preload="metadata" poster="assets/images/hero-sky.jpg" playsinline>
           <source src="assets/videos/trailer-1.mp4" type="video/mp4">
-          <source src="assets/videos/trailer-1.mov" type="video/quicktime">
         </video>
       </div>
 
-      <!-- Если будет второй ролик — раскомментируй и положи файл -->
-      <!--
+      <!-- Второй ролик — добавь файл и раскомментируй
       <div class="video-card reveal">
         <video controls preload="metadata" poster="assets/images/hero-sky.jpg" playsinline>
           <source src="assets/videos/trailer-2.mp4" type="video/mp4">
-          <source src="assets/videos/trailer-2.mov" type="video/quicktime">
         </video>
       </div>
       -->
     </div>
-    <p class="caption">Совместимость: лучше иметь копии в MP4 (H.264 + AAC). MOV оставлен как запасной источник.</p>
+    <p class="caption">Hinweis: Für Web-Kompatibilität verwenden wir MP4 (H.264 + AAC).</p>
   </section>
 
   <!-- Team -->
