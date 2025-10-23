@@ -88,8 +88,10 @@
 <body>
   <!-- Background -->
   <video class="bg-video" autoplay muted loop playsinline poster="assets/images/hero-sky.jpg">
-    <!-- .mov с H.264; тип не указываем, чтобы браузер сам распознал -->
-    <source src="assets/videos/hero-sky.mov">
+    <!-- Универсальный источник -->
+    <source src="assets/videos/hero-sky.mp4" type="video/mp4">
+    <!-- Запасной источник (оставляем .mov, если браузер его поддержит) -->
+    <source src="assets/videos/hero-sky.mov" type="video/quicktime">
   </video>
   <div class="overlay"></div>
 
@@ -128,20 +130,27 @@
     <h2>Video</h2>
     <div class="videos">
       <div class="video-card reveal">
-        <video controls preload="metadata" poster="assets/images/hero-sky.jpg">
-          <source src="assets/videos/trailer-1.mov">
+        <video controls preload="metadata" poster="assets/images/hero-sky.jpg" playsinline>
+          <!-- Основной источник -->
+          <source src="assets/videos/trailer-1.mp4" type="video/mp4">
+          <!-- Запасной (если mp4 не подхватится, что бывает редко) -->
+          <source src="assets/videos/trailer-1.mov" type="video/quicktime">
         </video>
       </div>
-      <!-- Второй ролик: добавь trailer-2.mov, когда будет готов -->
+
+      <!-- Второй ролик: добавь файл и раскомментируй блок -->
       <!--
       <div class="video-card reveal">
-        <video controls preload="metadata" poster="assets/images/hero-sky.jpg">
-          <source src="assets/videos/trailer-2.mov">
+        <video controls preload="metadata" poster="assets/images/hero-sky.jpg" playsinline>
+          <source src="assets/videos/trailer-2.mp4" type="video/mp4">
+          <source src="assets/videos/trailer-2.mov" type="video/quicktime">
         </video>
       </div>
       -->
     </div>
-    <p class="caption">Falls ein Video не воспроизводится в Safari/iOS, конвертируй его в .mp4 (H.264 + AAC) и замени расширение в пути.</p>
+    <p class="caption">
+      Hinweis: Für maximale Kompatibilität держите копии в MP4 (H.264 + AAC). MOV оставлен как запасной.
+    </p>
   </section>
 
   <!-- Team -->
