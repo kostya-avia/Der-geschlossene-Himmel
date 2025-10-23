@@ -3,263 +3,242 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Der geschlossene Himmel — Theaterstück</title>
-  <meta name="description" content="Der geschlossene Himmel — ein explosives Schauspiel, gewidmet Mariupol, dem Kiewer Gebiet und der gesamten Ukraine. Vier Frauen erinnern, überleben, hoffen." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Der geschlossene Himmel — Theaterprojekt</title>
+  <meta name="description" content="Der geschlossene Himmel — ein Theaterprojekt über Erinnerung, Verlust und Hoffnung." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#0d0f12;
-      --card:#13161b;
-      --muted:#9aa3ad;
-      --text:#e9eef3;
-      --accent:#8fd3ff;
-      --accent2:#ffd18f;
-      --border:#232833;
-      --radius:18px;
-      --max:1200px;
+    :root {
+      --bg: #000;
+      --overlay: rgba(0, 0, 0, 0.55);
+      --text: #e8ecf0;
+      --muted: #a8b0ba;
+      --accent: #8fd3ff;
+      --border: rgba(255,255,255,0.1);
+      --max: 1100px;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
-    a{color:var(--accent);text-decoration:none}
-    a:hover{text-decoration:underline}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    /* --- Background video --- */
+    .bg-video{
+      position:fixed;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      z-index:-2;
+      filter:contrast(105%) saturate(110%);
+    }
+    .overlay{
+      position:fixed;
+      inset:0;
+      background:linear-gradient(to bottom, rgba(0,0,0,0.82), rgba(0,0,0,0.62));
+      z-index:-1;
+    }
+
     header{
-      position:sticky;top:0;z-index:10;
-      backdrop-filter: blur(8px);
-      background:linear-gradient(180deg, rgba(13,15,18,.85), rgba(13,15,18,.65));
-      border-bottom:1px solid var(--border);
+      text-align:center;
+      padding:140px 20px 80px;
     }
-    .wrap{max-width:var(--max);margin-inline:auto;padding:16px 20px}
-    .brand{display:flex;align-items:center;gap:14px}
-    .logo{
-      width:40px;height:40px;border-radius:12px;
-      background:linear-gradient(135deg,var(--accent),var(--accent2));
-      box-shadow:0 6px 28px rgba(143,211,255,.35), inset 0 0 18px rgba(255,209,143,.15);
+    h1{
+      font-size:clamp(36px,5vw,60px);
+      margin-bottom:12px;
+      font-weight:800;
+      letter-spacing:1px;
     }
-    .title{font-weight:800;letter-spacing:.3px}
-    .hero{
-      padding:56px 20px 28px;
-      background:
-        radial-gradient(1200px 600px at 50% -200px, rgba(143,211,255,.10), transparent 60%),
-        radial-gradient(1000px 500px at 80% 0, rgba(255,209,143,.06), transparent 50%);
+    .subtitle{
+      color:var(--muted);
+      font-size:18px;
     }
-    .grid{
-      display:grid;gap:20px;
-      grid-template-columns:1fr;
+
+    section{
+      max-width:var(--max);
+      margin:auto;
+      padding:80px 20px;
+      background:rgba(0,0,0,0.42);
+      border-radius:20px;
+      backdrop-filter: blur(4px);
+      margin-bottom:50px;
+      border:1px solid var(--border);
     }
-    .hero .grid{align-items:center}
-    .h1{font-size:clamp(28px,4.2vw,52px);line-height:1.1;margin:0 0 12px}
-    .lead{color:var(--muted);font-size:clamp(16px,1.6vw,18px);margin:0 0 18px}
-    .tag{
-      display:inline-block;padding:6px 10px;border:1px solid var(--border);border-radius:999px;color:var(--accent);font-weight:600;font-size:13px;margin-bottom:10px;letter-spacing:.2px
+
+    h2{
+      font-size:clamp(26px,3vw,36px);
+      margin-bottom:20px;
+      text-align:center;
+      color:var(--accent);
     }
-    .card{
-      background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
-      padding:18px
+
+    p{margin-bottom:14px;font-size:17px;}
+
+    /* --- Gallery --- */
+    .gallery{
+      display:grid;
+      gap:16px;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     }
-    .btn{
-      display:inline-flex;gap:10px;align-items:center;
-      padding:12px 16px;border-radius:12px;border:1px solid var(--border);
-      background:linear-gradient(180deg,#1a1f27,#12161c);
-      color:var(--text);font-weight:600
+    .gallery img{
+      width:100%;height:100%;
+      border-radius:14px;
+      object-fit:cover;
+      border:1px solid var(--border);
+      opacity:.95;
+      transition:opacity .35s ease, transform .35s ease;
     }
-    .btn:hover{transform:translateY(-1px)}
-    .media{
-      position:relative;overflow:hidden;border-radius:var(--radius);
-      background:#0a0c10;border:1px solid var(--border);
+    .gallery img:hover{opacity:1; transform:scale(1.01);}
+
+    /* --- Videos --- */
+    .videos{
+      display:grid;
+      gap:20px;
+      grid-template-columns:repeat(auto-fit,minmax(460px,1fr));
+    }
+    iframe{
+      width:100%;
       aspect-ratio:16/9;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:#000;
     }
-    .media iframe, .media video{
-      position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:var(--radius);display:block;background:#000;
+
+    /* --- Team --- */
+    .team{
+      display:flex;
+      flex-wrap:wrap;
+      gap:20px;
+      justify-content:center;
+      text-align:center;
     }
-    .section{padding:28px 20px}
-    h2{font-size:clamp(22px,3vw,32px);margin:0 0 14px}
-    .cols{display:grid;gap:20px}
-    @media (min-width:850px){
-      .grid-2{grid-template-columns:1.2fr .8fr}
-      .cols-2{grid-template-columns:1fr 1fr}
-      .cols-3{grid-template-columns:repeat(3,1fr)}
-      .cols-4{grid-template-columns:repeat(4,1fr)}
+    .member{
+      flex:1 1 200px;
+      background:rgba(255,255,255,0.05);
+      padding:20px;
+      border-radius:12px;
+      border:1px solid var(--border);
     }
-    figure{margin:0}
-    .photo{
-      width:100%;border-radius:14px;border:1px solid var(--border);display:block;
-      object-fit:cover;height:100%
-    }
-    .thumb{aspect-ratio:3/2;}
-    .credits{color:var(--muted);font-size:14px}
-    .list{display:grid;gap:8px;margin:0;padding-left:18px}
-    .list li{margin:0}
+
+    /* --- Contact --- */
     footer{
-      padding:28px 20px;border-top:1px solid var(--border);color:var(--muted);text-align:center
+      text-align:center;
+      padding:50px 20px;
+      font-size:15px;
+      color:var(--muted);
+      border-top:1px solid var(--border);
+      background:rgba(0,0,0,0.6);
     }
-    .pill{
-      display:inline-block;background:#101318;border:1px solid var(--border);
-      padding:8px 12px;border-radius:999px;color:#cfe9ff;font-size:13px
+
+    /* ===== Reveal on scroll ===== */
+    .reveal{
+      opacity:0;
+      transform:translateY(26px);
+      transition:opacity .7s ease, transform .7s ease;
+      will-change: opacity, transform;
+    }
+    .reveal.visible{
+      opacity:1;
+      transform:none;
+    }
+    /* легкая «ступенька» задержки для элементов галереи */
+    .gallery .reveal:nth-child(1){transition-delay:.05s}
+    .gallery .reveal:nth-child(2){transition-delay:.12s}
+    .gallery .reveal:nth-child(3){transition-delay:.19s}
+    .gallery .reveal:nth-child(4){transition-delay:.26s}
+    .gallery .reveal:nth-child(5){transition-delay:.33s}
+    .gallery .reveal:nth-child(6){transition-delay:.40s}
+
+    /* если пользователь предпочитает без анимаций */
+    @media (prefers-reduced-motion: reduce){
+      .reveal{opacity:1;transform:none;transition:none}
+      .gallery img{transition:none}
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <div class="wrap brand">
-      <div class="logo" aria-hidden="true"></div>
-      <div>
-        <div class="title">Der geschlossene Himmel</div>
-        <div class="credits">Ein Theaterprojekt • UA → DE</div>
-      </div>
-    </div>
+  <!-- Background -->
+  <video class="bg-video" autoplay muted loop playsinline poster="assets/hero-sky.jpg">
+    <source src="assets/hero-sky.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
+
+  <!-- Header -->
+  <header class="reveal">
+    <h1>Der geschlossene Himmel</h1>
+    <div class="subtitle">Ein Theaterprojekt über Erinnerung, Verlust und Hoffnung</div>
   </header>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div class="wrap">
-        <div class="grid grid-2">
-          <div>
-            <div class="tag">Neues Stück</div>
-            <h1 class="h1">Der geschlossene Himmel</h1>
-            <p class="lead">
-              Vier Frauen erwachen in einem fensterlosen Raum. Über Fetzen von Erinnerungen
-              setzen sie ihre Geschichten zusammen: Belagerung, Flucht, Verlust und die Frage,
-              wie man danach weiterlebt. Ein Abend über Angst, Verantwortung und Hoffnung.
-            </p>
-            <div class="card">
-              <strong>Kurzer Inhalt</strong>
-              <p class="credits" style="margin:6px 0 0">
-                Gewidmet Mariupol, dem Kiewer Gebiet und der gesamten Ukraine. Die Figuren
-                versuchen, mithilfe von Atem, Tanz und Liedern Erinnerungen freizulegen, um den
-                „Ausgang“ zu finden — und damit eine Zukunft. (Quelle: Autor:innenmanuskript)
-              </p>
-            </div>
-            <p style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
-              <a class="btn" href="#videos">▶ Trailer ansehen</a>
-              <a class="btn" href="#tickets">🎟️ Tickets & Termine</a>
-            </p>
-          </div>
-          <figure>
-            <img class="photo thumb" src="assets/IMG_6672-2.jpg" alt="Szenenprojektion mit Widmung und Foto eines Soldaten" />
-          </figure>
-        </div>
-      </div>
-    </section>
+  <!-- About -->
+  <section id="about" class="reveal">
+    <h2>Über das Stück</h2>
+    <p>
+      Vier Frauen erwachen in einem fensterlosen Raum. Über Fetzen von Erinnerungen setzen sie
+      ihre Geschichten zusammen: Belagerung, Flucht, Verlust und die Frage, wie man danach weiterlebt.
+      <br><br>
+      Das Stück ist den Menschen von Mariupol und der Ukraine gewidmet — eine stille Hommage an Mut, Schmerz und Überleben.
+    </p>
+    <img src="assets/scene-tribute.jpg" alt="Szenenfoto – Projektion Erinnerung"
+         style="width:100%;border-radius:16px;margin-top:20px;border:1px solid var(--border);" class="reveal">
+  </section>
 
-    <!-- VIDEOS -->
-    <section id="videos" class="section">
-      <div class="wrap">
-        <h2>Video</h2>
-        <div class="cols cols-2">
-          <div class="media">
-            <!-- Video #1 (16:9). Ersetzen Sie die Quelle oder binden Sie YouTube/Vimeo ein -->
-            <!-- Beispiel lokal:
-            <video controls preload="metadata" poster="assets/poster-1.jpg">
-              <source src="assets/trailer-1.mp4" type="video/mp4" />
-            </video>
-            -->
-            <!-- Beispiel YouTube: -->
-            <iframe
-              title="Trailer 1"
-              src="about:blank"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
-          </div>
-          <div class="media">
-            <iframe
-              title="Trailer 2"
-              src="about:blank"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
-          </div>
-        </div>
-        <p class="credits" style="margin-top:10px">Lassen Sie die iFrame-<em>src</em> später auf Ihre Youtube/Vimeo-Links zeigen oder nutzen Sie lokale <code>mp4</code>-Dateien (Beispiel oben im Kommentar).</p>
-      </div>
-    </section>
-
-    <!-- BILDER -->
-    <section class="section">
-      <div class="wrap">
-        <h2>Fotogalerie</h2>
-        <div class="cols cols-3">
-          <figure><img class="photo thumb" src="assets/IMG_6903-2.jpg" alt="Darstellerin in blauem Licht" /></figure>
-          <figure><img class="photo thumb" src="assets/IMG_6963.jpg" alt="Ensemble mit Kreuz-Requisite" /></figure>
-          <figure><img class="photo thumb" src="assets/IMG_6724.jpg" alt="Szenenbild mit Stuhl und Schauspielerinnen" /></figure>
-          <figure><img class="photo thumb" src="assets/91b77702-5d55-446b-aa1d-4acca2d2f84f.jpg" alt="Ensemble nach der Vorstellung mit Blumen" /></figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- STÜCK / DETAILS -->
-    <section class="section">
-      <div class="wrap grid grid-2">
-        <div class="card">
-          <h2>Über das Stück</h2>
-          <p>
-            «Der geschlossene Himmel» ist ein zeitgenössisches Schauspiel, das reale Stimmen und
-            Erlebnisse aus Mariupol und der Region Kiew aufgreift. Erinnern wird hier zur
-            Überlebensstrategie; die Frauen suchen einen Ausweg – und finden einen offenen Himmel.
-          </p>
-          <ul class="list">
-            <li>Sprache: Deutsch</li>
-            <li>Dauer: ~75–90 Minuten (ohne Pause)</li>
-            <li>Besetzung: 4 Darstellerinnen</li>
-            <li>Form: Schauspiel mit Projektion, Musik und Bewegung</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h2 id="tickets">Tickets & Termine</h2>
-          <ul class="list">
-            <li><strong>Premiere:</strong> TT.MM.JJJJ, 19:00</li>
-            <li><strong>Ort:</strong> Name der Spielstätte, Adresse, Stadt</li>
-            <li><strong>Tickets:</strong> <a href="#">Jetzt reservieren</a></li>
-          </ul>
-          <p class="credits">Tragen Sie hier reale Termine/Links ein.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- TEAM -->
-    <section class="section">
-      <div class="wrap">
-        <h2>Team</h2>
-        <div class="cols cols-4">
-          <div class="card"><strong>Regie</strong><br><span class="credits">Name</span></div>
-          <div class="card"><strong>Dramaturgie</strong><br><span class="credits">Name</span></div>
-          <div class="card"><strong>Darstellerinnen</strong><br><span class="credits">4 Namen</span></div>
-          <div class="card"><strong>Musik/Video</strong><br><span class="credits">Name</span></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- KONTAKT -->
-    <section class="section">
-      <div class="wrap grid grid-2">
-        <div class="card">
-          <h2>Kontakt</h2>
-          <p>
-            Für Gastspiele, Presse und Kooperationen:
-          </p>
-          <p class="credits">
-            E-Mail: <a href="mailto:info@example.com">info@example.com</a><br/>
-            Telefon: +43 000 0000000
-          </p>
-        </div>
-        <div class="card">
-          <h2>Material</h2>
-          <p class="credits">Programmheft, Pressefotos und Technik-Rider auf Anfrage.</p>
-          <span class="pill">CC BY-NC-SA (sofern nicht anders angegeben)</span>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap">
-      © <span id="y"></span> — Der geschlossene Himmel • Eine Produktion Ihrer Theatergruppe
+  <!-- Gallery -->
+  <section id="gallery" class="reveal">
+    <h2>Fotogalerie</h2>
+    <div class="gallery">
+      <img class="reveal" src="assets/scene-bluelight.jpg" alt="Schauspielerin im blauen Licht">
+      <img class="reveal" src="assets/scene-cross.jpg" alt="Frauen mit Kreuz-Requisite">
+      <img class="reveal" src="assets/scene-fear.jpg" alt="Darstellerinnen während der Szene">
+      <img class="reveal" src="assets/scene-final.jpg" alt="Ensemble nach der Vorstellung">
     </div>
+  </section>
+
+  <!-- Videos -->
+  <section id="videos" class="reveal">
+    <h2>Video</h2>
+    <div class="videos">
+      <iframe src="about:blank" title="Trailer 1" allowfullscreen class="reveal"></iframe>
+      <iframe src="about:blank" title="Trailer 2" allowfullscreen class="reveal"></iframe>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section id="team" class="reveal">
+    <h2>Team</h2>
+    <div class="team">
+      <div class="member reveal"><strong>Regie</strong><br><span>—</span></div>
+      <div class="member reveal"><strong>Dramaturgie</strong><br><span>—</span></div>
+      <div class="member reveal"><strong>Darstellerinnen</strong><br><span>4 Namen</span></div>
+      <div class="member reveal"><strong>Musik & Projektion</strong><br><span>—</span></div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <footer>
+    © <span id="y"></span> Der geschlossene Himmel — Theaterprojekt ·
+    E-Mail: <a href="mailto:info@example.com" style="color:#cfe9ff">info@example.com</a>
   </footer>
 
   <script>
+    // год в футере
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // плавное появление блоков при прокрутке
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target); // один раз
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.15 });
+
+    els.forEach(el => io.observe(el));
   </script>
 </body>
 </html>
