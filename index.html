@@ -9,7 +9,6 @@
   <style>
     :root {
       --bg: #000;
-      --overlay: rgba(0, 0, 0, 0.55);
       --text: #e8ecf0;
       --muted: #a8b0ba;
       --accent: #8fd3ff;
@@ -18,152 +17,79 @@
     }
     *{box-sizing:border-box;margin:0;padding:0}
     body{
-      font-family: 'Inter', sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color: var(--text);
       background: var(--bg);
       line-height:1.6;
       overflow-x:hidden;
     }
 
-    /* --- Background video --- */
+    /* Background video */
     .bg-video{
-      position:fixed;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      z-index:-2;
-      filter:contrast(105%) saturate(110%);
+      position:fixed; inset:0; width:100%; height:100%;
+      object-fit:cover; z-index:-2; filter:contrast(105%) saturate(110%);
     }
     .overlay{
-      position:fixed;
-      inset:0;
-      background:linear-gradient(to bottom, rgba(0,0,0,0.82), rgba(0,0,0,0.62));
-      z-index:-1;
+      position:fixed; inset:0; z-index:-1;
+      background:linear-gradient(to bottom, rgba(0,0,0,.82), rgba(0,0,0,.62));
     }
 
-    header{
-      text-align:center;
-      padding:140px 20px 80px;
-    }
-    h1{
-      font-size:clamp(36px,5vw,60px);
-      margin-bottom:12px;
-      font-weight:800;
-      letter-spacing:1px;
-    }
-    .subtitle{
-      color:var(--muted);
-      font-size:18px;
-    }
+    header{ text-align:center; padding:140px 20px 80px; }
+    h1{ font-size:clamp(36px,5vw,60px); margin-bottom:12px; font-weight:800; letter-spacing:1px; }
+    .subtitle{ color:var(--muted); font-size:18px; }
 
     section{
-      max-width:var(--max);
-      margin:auto;
-      padding:80px 20px;
-      background:rgba(0,0,0,0.42);
-      border-radius:20px;
-      backdrop-filter: blur(4px);
-      margin-bottom:50px;
-      border:1px solid var(--border);
+      max-width:var(--max); margin:auto; padding:80px 20px;
+      background:rgba(0,0,0,.42); border-radius:20px; backdrop-filter:blur(4px);
+      margin-bottom:50px; border:1px solid var(--border);
     }
+    h2{ font-size:clamp(26px,3vw,36px); margin-bottom:20px; text-align:center; color:var(--accent); }
+    p{ margin-bottom:14px; font-size:17px; }
 
-    h2{
-      font-size:clamp(26px,3vw,36px);
-      margin-bottom:20px;
-      text-align:center;
-      color:var(--accent);
-    }
-
-    p{margin-bottom:14px;font-size:17px;}
-
-    /* --- Gallery --- */
-    .gallery{
-      display:grid;
-      gap:16px;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    }
+    /* Gallery */
+    .gallery{ display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); }
     .gallery img{
-      width:100%;height:100%;
-      border-radius:14px;
-      object-fit:cover;
-      border:1px solid var(--border);
-      opacity:.95;
-      transition:opacity .35s ease, transform .35s ease;
+      width:100%; height:100%; object-fit:cover; border-radius:14px; border:1px solid var(--border);
+      opacity:.95; transition:opacity .35s ease, transform .35s ease;
     }
-    .gallery img:hover{opacity:1; transform:scale(1.01);}
+    .gallery img:hover{ opacity:1; transform:scale(1.01); }
 
-    /* --- Videos --- */
-    .videos{
-      display:grid;
-      gap:20px;
-      grid-template-columns:repeat(auto-fit,minmax(460px,1fr));
-    }
-    iframe{
-      width:100%;
+    /* Videos */
+    .videos{ display:grid; gap:20px; grid-template-columns:repeat(auto-fit,minmax(460px,1fr)); }
+    .video-card{
+      position:relative; border:1px solid var(--border); border-radius:14px; overflow:hidden; background:#000;
       aspect-ratio:16/9;
-      border-radius:14px;
-      border:1px solid var(--border);
-      background:#000;
     }
+    .video-card video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+    .caption{ text-align:center; color:var(--muted); font-size:14px; margin-top:8px; }
 
-    /* --- Team --- */
-    .team{
-      display:flex;
-      flex-wrap:wrap;
-      gap:20px;
-      justify-content:center;
-      text-align:center;
-    }
-    .member{
-      flex:1 1 200px;
-      background:rgba(255,255,255,0.05);
-      padding:20px;
-      border-radius:12px;
-      border:1px solid var(--border);
-    }
+    /* Team */
+    .team{ display:flex; flex-wrap:wrap; gap:20px; justify-content:center; text-align:center; }
+    .member{ flex:1 1 200px; background:rgba(255,255,255,.05); padding:20px; border-radius:12px; border:1px solid var(--border); }
 
-    /* --- Contact --- */
     footer{
-      text-align:center;
-      padding:50px 20px;
-      font-size:15px;
-      color:var(--muted);
-      border-top:1px solid var(--border);
-      background:rgba(0,0,0,0.6);
+      text-align:center; padding:50px 20px; font-size:15px; color:var(--muted);
+      border-top:1px solid var(--border); background:rgba(0,0,0,.6);
     }
 
-    /* ===== Reveal on scroll ===== */
-    .reveal{
-      opacity:0;
-      transform:translateY(26px);
-      transition:opacity .7s ease, transform .7s ease;
-      will-change: opacity, transform;
-    }
-    .reveal.visible{
-      opacity:1;
-      transform:none;
-    }
-    /* легкая «ступенька» задержки для элементов галереи */
+    /* Reveal on scroll */
+    .reveal{ opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s ease; will-change:opacity,transform; }
+    .reveal.visible{ opacity:1; transform:none; }
     .gallery .reveal:nth-child(1){transition-delay:.05s}
     .gallery .reveal:nth-child(2){transition-delay:.12s}
     .gallery .reveal:nth-child(3){transition-delay:.19s}
     .gallery .reveal:nth-child(4){transition-delay:.26s}
-    .gallery .reveal:nth-child(5){transition-delay:.33s}
-    .gallery .reveal:nth-child(6){transition-delay:.40s}
-
-    /* если пользователь предпочитает без анимаций */
     @media (prefers-reduced-motion: reduce){
       .reveal{opacity:1;transform:none;transition:none}
       .gallery img{transition:none}
     }
   </style>
 </head>
-
 <body>
   <!-- Background -->
-  <video class="bg-video" autoplay muted loop playsinline poster="assets/hero-sky.jpg">
-    <source src="assets/hero-sky.mp4" type="video/mp4">
+  <video class="bg-video" autoplay muted loop playsinline poster="assets/images/hero-sky.jpg">
+    <!-- .mov с H.264; тип не указываем, чтобы браузер сам распознал -->
+    <source src="assets/videos/hero-sky.mov">
   </video>
   <div class="overlay"></div>
 
@@ -182,7 +108,7 @@
       <br><br>
       Das Stück ist den Menschen von Mariupol und der Ukraine gewidmet — eine stille Hommage an Mut, Schmerz und Überleben.
     </p>
-    <img src="assets/scene-tribute.jpg" alt="Szenenfoto – Projektion Erinnerung"
+    <img src="assets/images/scene-tribute.jpg" alt="Szenenfoto – Projektion Erinnerung"
          style="width:100%;border-radius:16px;margin-top:20px;border:1px solid var(--border);" class="reveal">
   </section>
 
@@ -190,10 +116,10 @@
   <section id="gallery" class="reveal">
     <h2>Fotogalerie</h2>
     <div class="gallery">
-      <img class="reveal" src="assets/scene-bluelight.jpg" alt="Schauspielerin im blauen Licht">
-      <img class="reveal" src="assets/scene-cross.jpg" alt="Frauen mit Kreuz-Requisite">
-      <img class="reveal" src="assets/scene-fear.jpg" alt="Darstellerinnen während der Szene">
-      <img class="reveal" src="assets/scene-final.jpg" alt="Ensemble nach der Vorstellung">
+      <img class="reveal" src="assets/images/scene-bluelight.jpg" alt="Schauspielerin im blauen Licht">
+      <img class="reveal" src="assets/images/scene-cross.jpg" alt="Frauen mit Kreuz-Requisite">
+      <img class="reveal" src="assets/images/scene-fear.jpg" alt="Darstellerinnen während der Szene">
+      <img class="reveal" src="assets/images/scene-final.jpg" alt="Ensemble nach der Vorstellung">
     </div>
   </section>
 
@@ -201,9 +127,21 @@
   <section id="videos" class="reveal">
     <h2>Video</h2>
     <div class="videos">
-      <iframe src="about:blank" title="Trailer 1" allowfullscreen class="reveal"></iframe>
-      <iframe src="about:blank" title="Trailer 2" allowfullscreen class="reveal"></iframe>
+      <div class="video-card reveal">
+        <video controls preload="metadata" poster="assets/images/hero-sky.jpg">
+          <source src="assets/videos/trailer-1.mov">
+        </video>
+      </div>
+      <!-- Второй ролик: добавь trailer-2.mov, когда будет готов -->
+      <!--
+      <div class="video-card reveal">
+        <video controls preload="metadata" poster="assets/images/hero-sky.jpg">
+          <source src="assets/videos/trailer-2.mov">
+        </video>
+      </div>
+      -->
     </div>
+    <p class="caption">Falls ein Video не воспроизводится в Safari/iOS, конвертируй его в .mp4 (H.264 + AAC) и замени расширение в пути.</p>
   </section>
 
   <!-- Team -->
@@ -233,11 +171,10 @@
       entries.forEach(e => {
         if (e.isIntersecting) {
           e.target.classList.add('visible');
-          obs.unobserve(e.target); // один раз
+          obs.unobserve(e.target);
         }
       });
     }, { rootMargin: '0px 0px -10% 0px', threshold: 0.15 });
-
     els.forEach(el => io.observe(el));
   </script>
 </body>
