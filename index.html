@@ -6,6 +6,7 @@
   <title>Der geschlossene Himmel — Theaterprojekt</title>
   <meta name="description" content="Der geschlossene Himmel — ein Theaterprojekt über Erinnerung, Verlust und Hoffnung." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/images/LOGO.png" type="image/png">
   <style>
     :root {
       --bg: #000;
@@ -34,14 +35,26 @@
       background:linear-gradient(to bottom, rgba(0,0,0,.82), rgba(0,0,0,.62));
     }
 
-    header{ text-align:center; padding:140px 20px 80px; }
-    h1{ font-size:clamp(36px,5vw,60px); margin-bottom:12px; font-weight:800; letter-spacing:1px; }
-    .subtitle{ color:var(--muted); font-size:18px; }
+    /* Header */
+    header{ padding:120px 20px 60px; }
+    .brand{
+      max-width:var(--max); margin:0 auto; display:flex; align-items:center; gap:14px;
+      background:rgba(0,0,0,.42); border:1px solid var(--border); border-radius:20px; padding:16px 18px; backdrop-filter:blur(4px);
+    }
+    .logo{
+      width:58px; height:58px; flex:0 0 auto;
+      border-radius:12px; background:#fff; display:grid; place-items:center; overflow:hidden;
+      box-shadow:0 8px 26px rgba(0,0,0,.35);
+    }
+    .logo img{ width:100%; height:100%; object-fit:contain; background:#fff }
+    .titles{ display:flex; flex-direction:column }
+    h1{ font-size:clamp(28px,4.5vw,44px); font-weight:800; letter-spacing:.5px; line-height:1.1; }
+    .subtitle{ color:var(--muted); font-size:16px; }
 
     section{
-      max-width:var(--max); margin:auto; padding:80px 20px;
+      max-width:var(--max); margin:auto; padding:64px 20px;
       background:rgba(0,0,0,.42); border-radius:20px; backdrop-filter:blur(4px);
-      margin-bottom:50px; border:1px solid var(--border);
+      margin-bottom:42px; border:1px solid var(--border);
     }
     h2{ font-size:clamp(26px,3vw,36px); margin-bottom:20px; text-align:center; color:var(--accent); }
     p{ margin-bottom:14px; font-size:17px; }
@@ -68,7 +81,7 @@
     .member{ flex:1 1 200px; background:rgba(255,255,255,.05); padding:20px; border-radius:12px; border:1px solid var(--border); }
 
     footer{
-      text-align:center; padding:50px 20px; font-size:15px; color:var(--muted);
+      text-align:center; padding:40px 20px; font-size:15px; color:var(--muted);
       border-top:1px solid var(--border); background:rgba(0,0,0,.6);
     }
 
@@ -90,15 +103,22 @@
   <video class="bg-video" autoplay muted loop playsinline poster="assets/images/hero-sky.jpg">
     <!-- Универсальный источник -->
     <source src="assets/videos/hero-sky.mp4" type="video/mp4">
-    <!-- Запасной источник (оставляем .mov, если браузер его поддержит) -->
+    <!-- Запасной (.mov оставлен на случай поддержки браузером) -->
     <source src="assets/videos/hero-sky.mov" type="video/quicktime">
   </video>
   <div class="overlay"></div>
 
-  <!-- Header -->
+  <!-- Header with logo -->
   <header class="reveal">
-    <h1>Der geschlossene Himmel</h1>
-    <div class="subtitle">Ein Theaterprojekt über Erinnerung, Verlust und Hoffnung</div>
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <img src="assets/images/LOGO.png" alt="Nadykh Theater Logo">
+      </div>
+      <div class="titles">
+        <h1>Der geschlossene Himmel</h1>
+        <div class="subtitle">Ein Theaterprojekt des Theaters „Nadykh“ — über Erinnerung, Verlust und Hoffnung</div>
+      </div>
+    </div>
   </header>
 
   <!-- About -->
@@ -133,7 +153,7 @@
         <video controls preload="metadata" poster="assets/images/hero-sky.jpg" playsinline>
           <!-- Основной источник -->
           <source src="assets/videos/trailer-1.mp4" type="video/mp4">
-          <!-- Запасной (если mp4 не подхватится, что бывает редко) -->
+          <!-- Запасной -->
           <source src="assets/videos/trailer-1.mov" type="video/quicktime">
         </video>
       </div>
@@ -148,9 +168,7 @@
       </div>
       -->
     </div>
-    <p class="caption">
-      Hinweis: Für maximale Kompatibilität держите копии в MP4 (H.264 + AAC). MOV оставлен как запасной.
-    </p>
+    <p class="caption">Für maximale Kompatibilität empfehlenswert ist MP4 (H.264 + AAC). MOV bleibt als Fallback.</p>
   </section>
 
   <!-- Team -->
