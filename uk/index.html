@@ -7,18 +7,14 @@
   <title>Закрите небо — театр «Надих», Відень</title>
   <meta name="description" content="«Закрите небо» — сучасна драма українського театру «Надих» у Відні. Вистава 08.02.2026 о 17:00 (вхід з 16:30), Rückertgasse 5, 1160 Wien." />
 
-  <!-- Канонічні та мовні посилання -->
   <link rel="canonical" href="https://himmel.nadykh.com/uk/" />
   <link rel="alternate" hreflang="de" href="https://himmel.nadykh.com/" />
   <link rel="alternate" hreflang="uk" href="https://himmel.nadykh.com/uk/" />
 
-  <!-- Open Graph -->
   <meta property="og:title" content="Закрите небо — театр «Надих», Відень" />
   <meta property="og:description" content="Сучасна українська вистава у Відні. 8 лютого 2026, 17:00 (вхід з 16:30), Rückertgasse 5, 1160 Wien." />
   <meta property="og:url" content="https://himmel.nadykh.com/uk/" />
   <meta property="og:image" content="https://himmel.nadykh.com/assets/images/scene-final.jpg" />
-
-  <!-- Ключові слова -->
   <meta name="keywords" content="театр Надих, український театр Відень, сучасна драма, філософська п'єса, вистава, Олена Еделінскі, Михайло Еделінскі, театр Австрія, Ukrainian theatre Vienna, play Vienna" />
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -51,18 +47,15 @@
     .gallery{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
     .gallery img{width:100%;height:100%;object-fit:cover;border-radius:14px;border:1px solid var(--border)}
 
-    .videos{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(460px,1fr))}
-    .video-card{position:relative;border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#000;aspect-ratio:16/9}
-    .video-card video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% 50%;border-radius:inherit}
+    .videos{max-width:1200px;margin:0 auto;padding:0 16px}
+    .video-card{position:relative;aspect-ratio:16/9;border:1px solid var(--border);border-radius:20px;background:#000;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.45);-webkit-mask-image:-webkit-radial-gradient(white, black)}
+    .video-card video{display:block;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:inherit}
+    @media (max-width:640px){.video-card{border-radius:14px}}
 
-    .event{display:grid;gap:16px;grid-template-columns:140px 1fr;align-items:center}
-    .cal{width:140px;height:150px;border-radius:16px;border:1px solid var(--border);background:linear-gradient(180deg,rgba(245,217,122,.18),rgba(255,255,255,.04));text-align:center;display:flex;flex-direction:column;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.25)}
-    .cal .month{font-weight:800;letter-spacing:.12em;color:#2d2d2d;background:#f5d97a;padding:6px 10px;border-radius:12px;margin:0 18px 8px}
-    .cal .day{font-size:48px;font-weight:800;line-height:1}
-    .cal .weekday{color:var(--muted);font-size:13px;margin-top:6px}
-
-    .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-    .btn{display:inline-flex;gap:8px;align-items:center;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.06);color:#fff;text-decoration:none}
+    .intro-quotes{max-width:var(--max);margin:28px auto;padding:18px;border-radius:14px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04)}
+    .intro-quotes blockquote{margin:0 0 14px;padding:12px 16px;border-left:4px solid var(--accent);background:rgba(255,255,255,.02);border-radius:8px}
+    .intro-quotes p{font-size:18px;line-height:1.45}
+    .intro-quotes cite{display:block;color:var(--muted);font-size:13px;margin-top:6px}
 
     .team{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;text-align:center}
     .member{flex:1 1 220px;background:rgba(255,255,255,.05);padding:18px;border-radius:12px;border:1px solid var(--border)}
@@ -72,22 +65,14 @@
   </style>
 </head>
 <body>
-  <!-- Перемикач мов -->
-  <div class="lang">
-    <a href="/">🇩🇪 DE</a>
-    <a href="/uk/" class="active">🇺🇦 UA</a>
-  </div>
-
-  <!-- Логотип -->
+  <div class="lang"><a href="/">🇩🇪 DE</a><a href="/uk/" class="active">🇺🇦 UA</a></div>
   <div class="logo-floating"><img src="../assets/images/LOGO.png" alt="Логотип театру Надих"></div>
 
-  <!-- Фонове відео неба -->
   <video class="bg-video" autoplay muted loop playsinline poster="../assets/images/hero-sky.jpg">
     <source src="../assets/videos/hero-sky.mp4" type="video/mp4">
   </video>
   <div class="overlay"></div>
 
-  <!-- Хедер -->
   <header>
     <div class="brand">
       <h1>Закрите небо</h1>
@@ -95,15 +80,26 @@
     </div>
   </header>
 
-  <!-- Про виставу -->
   <section>
     <h2>Про виставу</h2>
     <p>Чотири жінки у замкненому просторі. Бункер це чи підвал зруйнованого будинку не надто важливо. Важливішим є те, що усі вони не можуть згадати, як вони сюди потрапили і що відбувалося до цього.</p>
-    <p>Не можуть чи просто не хочуть?! Та вони будуть змушені пригадати все до жахливих подробиць. Бо у памʼяті їх порятунок! І нас з вами теж.</p>
+    <p>Не можуть чи просто не хочуть?! Та вони будуть змушені пригадати все до жахливих подробиць. Бо у памʼяті їх порятунок!</p>
+    <p>І нас з вами теж.</p>
     <img src="../assets/images/scene-tribute.jpg" alt="Сцена з вистави" style="width:100%;border-radius:16px;margin-top:20px;border:1px solid var(--border);">
   </section>
 
-  <!-- Галерея -->
+  <!-- Цитати -->
+  <section class="intro-quotes" aria-label="Цитати">
+    <blockquote>
+      <p>Я стала вчитися, як розрізняти те, що летить нас убивати, по звуках… Літаки, ракети, вертольоти, гради…</p>
+      <cite>— З прологу</cite>
+    </blockquote>
+    <blockquote>
+      <p>За що? Ми не нападали! Я просто хочу справедливості! Щоб кожному вернулося все, що вони послали! Не кажеш «ні» війні — значить, кажеш їй «так».</p>
+      <cite>— З прологу</cite>
+    </blockquote>
+  </section>
+
   <section>
     <h2>Фотогалерея</h2>
     <div class="gallery">
@@ -114,7 +110,6 @@
     </div>
   </section>
 
-  <!-- Відео -->
   <section>
     <h2>Відео</h2>
     <div class="videos">
@@ -126,33 +121,27 @@
     </div>
   </section>
 
-  <!-- Вистава (дата/час + фраза про вхід + карта) -->
   <section>
     <h2>Вистава</h2>
-    <div class="event">
-      <div class="cal">
-        <div class="month">ЛЮТ</div>
-        <div class="day">08</div>
-        <div class="weekday">Нд · 17:00</div>
+    <div class="event" style="display:grid;gap:16px;grid-template-columns:140px 1fr;align-items:center">
+      <div class="cal" style="width:140px;height:150px;border-radius:16px;border:1px solid var(--border);background:linear-gradient(180deg,rgba(245,217,122,.18),rgba(255,255,255,.04));text-align:center;display:flex;flex-direction:column;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.25)">
+        <div class="month" style="font-weight:800;letter-spacing:.12em;color:#2d2d2d;background:#f5d97a;padding:6px 10px;border-radius:12px;margin:0 18px 8px">ЛЮТ</div>
+        <div class="day" style="font-size:48px;font-weight:800;line-height:1">08</div>
+        <div class="weekday" style="color:var(--muted);font-size:13px;margin-top:6px">Нд · 17:00</div>
       </div>
       <div>
         <p><strong>8 лютого 2026, 17:00 (вхід з 16:30)</strong></p>
         <p>Rückertgasse 5, 1160 Wien</p>
-        <div class="btns">
-          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=R%C3%BCckertgasse%205%2C%201160%20Wien">📍 Google Maps</a>
+        <div class="btns" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=R%C3%BCckertgasse%205%2C%201160%20Wien" style="display:inline-flex;gap:8px;align-items:center;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.06);color:#fff;text-decoration:none">📍 Google Maps</a>
         </div>
       </div>
     </div>
     <div style="display:flex;justify-content:center;margin-top:16px;">
-      <iframe
-        src="https://www.google.com/maps?q=R%C3%BCckertgasse+5,+1160+Wien&output=embed"
-        width="100%" height="300"
-        style="border:0;max-width:700px;border-radius:12px;"
-        allowfullscreen loading="lazy"></iframe>
+      <iframe src="https://www.google.com/maps?q=R%C3%BCckertgasse+5,+1160+Wien&output=embed" width="100%" height="300" style="border:0;max-width:700px;border-radius:12px;" allowfullscreen loading="lazy"></iframe>
     </div>
   </section>
 
-  <!-- Команда -->
   <section>
     <h2>Команда</h2>
     <div class="team">
@@ -167,8 +156,6 @@
     © <span id="y"></span> Театр «Надих», Відень · <a href="mailto:info@nadykh.com" style="color:#cfe9ff">info@nadykh.com</a>
   </footer>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
