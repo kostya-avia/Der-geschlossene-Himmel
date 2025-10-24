@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Der geschlossene Himmel — Theater „Nadykh“, Wien</title>
-  <meta name="description" content="Der geschlossene Himmel — ein zeitgenössisches Theaterprojekt des ukrainischen Theaters „Nadykh“ in Wien. Aufführung 08.02.2026, 17:00 (Einlass ab 16:30), Rückertgasse 5, 1160 Wien." />
+  <meta name="description" content="Der geschlossene Himmel — zeitgenössisches Theaterprojekt des ukrainischen Theaters „Nadykh“ in Wien. Aufführung: 08.02.2026, 17:00 (Einlass ab 16:30), Rückertgasse 5, 1160 Wien." />
 
   <link rel="canonical" href="https://himmel.nadykh.com/" />
   <link rel="alternate" hreflang="de" href="https://himmel.nadykh.com/" />
@@ -13,8 +13,8 @@
 
   <meta property="og:title" content="Der geschlossene Himmel — Theater „Nadykh“, Wien" />
   <meta property="og:description" content="Ukrainisches Theater in Wien. Aufführung 08.02.2026, 17:00 (Einlass ab 16:30), Rückertgasse 5, 1160 Wien." />
-  <meta property="og:image" content="https://himmel.nadykh.com/assets/images/scene-final.jpg" />
   <meta property="og:url" content="https://himmel.nadykh.com/" />
+  <meta property="og:image" content="https://himmel.nadykh.com/assets/images/scene-final.jpg" />
   <meta name="keywords" content="Theater Nadykh, ukrainisches Theater Wien, Theater Österreich, zeitgenössisches Drama, philosophisches Stück, Der geschlossene Himmel, Olena Edelinski, Mykhailo Edelinski, Ukrainian theatre Vienna, play Vienna, театр Надих, український театр Відень, п'єса, вистава, сучасна драма, філософська п'єса" />
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -47,18 +47,17 @@
     .gallery{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
     .gallery img{width:100%;height:100%;object-fit:cover;border-radius:14px;border:1px solid var(--border)}
 
-    .videos{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(460px,1fr))}
-    .video-card{position:relative;border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#000;aspect-ratio:16/9}
-    .video-card video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% 50%;border-radius:inherit}
+    /* Видео: фиксируем «вылазание» на iOS */
+    .videos{max-width:1200px;margin:0 auto;padding:0 16px}
+    .video-card{position:relative;aspect-ratio:16/9;border:1px solid var(--border);border-radius:20px;background:#000;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.45);-webkit-mask-image:-webkit-radial-gradient(white, black)}
+    .video-card video{display:block;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:inherit}
+    @media (max-width:640px){.video-card{border-radius:14px}}
 
-    .event{display:grid;gap:16px;grid-template-columns:140px 1fr;align-items:center}
-    .cal{width:140px;height:150px;border-radius:16px;border:1px solid var(--border);background:linear-gradient(180deg,rgba(245,217,122,.18),rgba(255,255,255,.04));text-align:center;display:flex;flex-direction:column;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.25)}
-    .cal .month{font-weight:800;letter-spacing:.12em;color:#2d2d2d;background:#f5d97a;padding:6px 10px;border-radius:12px;margin:0 18px 8px}
-    .cal .day{font-size:48px;font-weight:800;line-height:1}
-    .cal .weekday{color:var(--muted);font-size:13px;margin-top:6px}
-
-    .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-    .btn{display:inline-flex;gap:8px;align-items:center;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.06);color:#fff;text-decoration:none}
+    /* Цитаты */
+    .intro-quotes{max-width:var(--max);margin:28px auto;padding:18px;border-radius:14px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04)}
+    .intro-quotes blockquote{margin:0 0 14px;padding:12px 16px;border-left:4px solid var(--accent);background:rgba(255,255,255,.02);border-radius:8px}
+    .intro-quotes p{font-size:18px;line-height:1.45}
+    .intro-quotes cite{display:block;color:var(--muted);font-size:13px;margin-top:6px}
 
     .team{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;text-align:center}
     .member{flex:1 1 220px;background:rgba(255,255,255,.05);padding:18px;border-radius:12px;border:1px solid var(--border)}
@@ -68,11 +67,7 @@
   </style>
 </head>
 <body>
-  <div class="lang">
-    <a href="/" class="active">🇩🇪 DE</a>
-    <a href="/uk/">🇺🇦 UA</a>
-  </div>
-
+  <div class="lang"><a href="/" class="active">🇩🇪 DE</a><a href="/uk/" class="dim">🇺🇦 UA</a></div>
   <div class="logo-floating"><img src="assets/images/LOGO.png" alt="Nadykh Theater Logo"></div>
 
   <video class="bg-video" autoplay muted loop playsinline poster="assets/images/hero-sky.jpg">
@@ -91,6 +86,18 @@
     <h2>Über das Stück</h2>
     <p>Vier Frauen erwachen in einem fensterlosen Raum. Über Fetzen von Erinnerungen setzen sie ihre Geschichten zusammen: Belagerung, Flucht, Verlust und die Frage, wie man danach weiterlebt. Das Stück ist den Menschen von Mariupol und der Ukraine gewidmet — eine stille Hommage an Mut, Schmerz und Überleben.</p>
     <img src="assets/images/scene-tribute.jpg" alt="Szenenfoto – Projektion Erinnerung" style="width:100%;border-radius:16px;margin-top:20px;border:1px solid var(--border);">
+  </section>
+
+  <!-- Zitate -->
+  <section class="intro-quotes" aria-label="Zitate">
+    <blockquote>
+      <p>Ich habe dann gelernt, am Geräusch zu erkennen, was fliegt, um uns zu töten … Flugzeuge, Hubschrauber, „Grad“-Raketen …</p>
+      <cite>— Aus dem Prolog</cite>
+    </blockquote>
+    <blockquote>
+      <p>Wofür? Wir haben niemanden angegriffen! Ich will nur Gerechtigkeit! Damit jeder von denen alles, was sie uns angetan haben, zurückbekommt! Wer nicht Nein zum Krieg sagt, sagt dazu Ja.</p>
+      <cite>— Aus dem Prolog</cite>
+    </blockquote>
   </section>
 
   <section>
@@ -116,17 +123,17 @@
 
   <section>
     <h2>Aufführung</h2>
-    <div class="event">
-      <div class="cal">
-        <div class="month">FEB</div>
-        <div class="day">08</div>
-        <div class="weekday">So · 17:00</div>
+    <div class="event" style="display:grid;gap:16px;grid-template-columns:140px 1fr;align-items:center">
+      <div class="cal" style="width:140px;height:150px;border-radius:16px;border:1px solid var(--border);background:linear-gradient(180deg,rgba(245,217,122,.18),rgba(255,255,255,.04));text-align:center;display:flex;flex-direction:column;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.25)">
+        <div class="month" style="font-weight:800;letter-spacing:.12em;color:#2d2d2d;background:#f5d97a;padding:6px 10px;border-radius:12px;margin:0 18px 8px">FEB</div>
+        <div class="day" style="font-size:48px;font-weight:800;line-height:1">08</div>
+        <div class="weekday" style="color:var(--muted);font-size:13px;margin-top:6px">So · 17:00</div>
       </div>
       <div>
         <p><strong>08. Februar 2026, 17:00 (Einlass ab 16:30)</strong></p>
         <p>Rückertgasse 5, 1160 Wien</p>
-        <div class="btns">
-          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=R%C3%BCckertgasse%205%2C%201160%20Wien">📍 Google Maps</a>
+        <div class="btns" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=R%C3%BCckertgasse%205%2C%201160%20Wien" style="display:inline-flex;gap:8px;align-items:center;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.06);color:#fff;text-decoration:none">📍 Google Maps</a>
         </div>
       </div>
     </div>
@@ -149,8 +156,6 @@
     © <span id="y"></span> Theater „Nadykh“, Wien · <a href="mailto:info@nadykh.com" style="color:#cfe9ff">info@nadykh.com</a>
   </footer>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
