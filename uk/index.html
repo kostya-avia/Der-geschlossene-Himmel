@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Закрите небо — театр «Надих», Відень</title>
+  <meta name="description" content="«Закрите небо» — сучасна драма українського театру «Надих» у Відні. Премʼєра 08.02.2026 о 17:00, Rückertgasse 5, 1160 Wien." />
+  <link rel="canonical" href="https://himmel.nadykh.com/uk/" />
+
+  <!-- hreflang -->
+  <link rel="alternate" hreflang="de" href="https://himmel.nadykh.com/" />
+  <link rel="alternate" hreflang="uk" href="https://himmel.nadykh.com/uk/" />
+
+  <meta property="og:title" content="Закрите небо — театр «Надих», Відень" />
+  <meta property="og:description" content="Сучасна українська вистава у Відні. 8 лютого 2026, 17:00, Rückertgasse 5, 1160 Wien." />
+  <meta property="og:url" content="https://himmel.nadykh.com/uk/" />
+  <meta property="og:image" content="https://himmel.nadykh.com/assets/images/scene-final.jpg" />
+  <meta name="keywords" content="театр Надих, український театр Відень, сучасна драма, філософська п'єса, вистава, Олена Еделінскі, Михайло Еделінскі, театр Австрія, Ukrainian theatre Vienna, play Vienna" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="../assets/images/LOGO.png" type="image/png">
+
+  <style>
+    :root{--bg:#000;--text:#e8ecf0;--muted:#a8b0ba;--accent:#f5d97a;--border:rgba(255,255,255,.10);--max:1100px}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;overflow-x:hidden}
+
+    .bg-video{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;filter:contrast(105%) saturate(110%)}
+    .overlay{position:fixed;inset:0;z-index:-1;background:linear-gradient(to bottom,rgba(0,0,0,.72),rgba(0,0,0,.46))}
+
+    .logo-floating{position:fixed;left:18px;top:18px;z-index:20;background:rgba(255,255,255,.92);border:1px solid rgba(0,0,0,.08);border-radius:18px;padding:10px 12px;box-shadow:0 12px 32px rgba(0,0,0,.35);backdrop-filter:blur(2px)}
+    .logo-floating img{height:92px;width:auto;object-fit:contain;display:block}
+    .lang{position:fixed;right:18px;top:18px;z-index:21}
+    .lang a{color:#fff;background:rgba(0,0,0,.3);padding:6px 12px;border-radius:12px;text-decoration:none;font-size:14px;margin-left:4px}
+    .lang a.active{background:rgba(0,0,0,.6)}
+
+    header{padding:108px 20px 44px}
+    .brand{max-width:var(--max);margin:0 auto;background:rgba(0,0,0,.30);border:1px solid var(--border);border-radius:20px;padding:16px 20px;backdrop-filter:blur(2px)}
+    h1{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:.4px;line-height:1.08;text-align:center}
+    .subtitle{color:var(--muted);font-size:16px;text-align:center;margin-top:6px}
+
+    section{max-width:var(--max);margin:auto;padding:56px 20px;background:rgba(0,0,0,.26);border-radius:20px;backdrop-filter:blur(2px);margin-bottom:36px;border:1px solid var(--border)}
+    h2{font-size:clamp(26px,3vw,36px);margin-bottom:18px;text-align:center;color:var(--accent)}
+    p{margin-bottom:14px;font-size:17px}
+
+    .gallery{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+    .gallery img{width:100%;height:100%;object-fit:cover;border-radius:14px;border:1px solid var(--border);opacity:.95;transition:opacity .35s,transform .35s}
+    .gallery img:hover{opacity:1;transform:scale(1.01)}
+
+    .videos{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(460px,1fr))}
+    .video-card{position:relative;border:1px solid var(--border);border-radius:20px;overflow:hidden;background:#000;aspect-ratio:16/9;-webkit-mask-image:-webkit-radial-gradient(white,black)}
+    .video-card video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% 50%;display:block;border-radius:inherit}
+
+    .team{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;text-align:center}
+    .member{flex:1 1 220px;background:rgba(255,255,255,.05);padding:18px;border-radius:12px;border:1px solid var(--border)}
+    .member strong{display:block;color:var(--accent);letter-spacing:.3px}
+
+    footer{text-align:center;padding:34px 20px;font-size:15px;color:var(--muted);border-top:1px solid var(--border);background:rgba(0,0,0,.45)}
+  </style>
+</head>
+<body>
+  <div class="lang"><a href="/" class="">🇩🇪 DE</a><a href="/uk/" class="active">🇺🇦 UA</a></div>
+  <div class="logo-floating"><img src="../assets/images/LOGO.png" alt="Логотип театру Надих"></div>
+
+  <video class="bg-video" autoplay muted loop playsinline poster="../assets/images/hero-sky.jpg">
+    <source src="../assets/videos/hero-sky.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
+
+  <header>
+    <div class="brand">
+      <h1>Закрите небо</h1>
+      <div class="subtitle">Український театр «Надих», Відень — вистава про пам’ять, втрати й надію</div>
+    </div>
+  </header>
+
+  <section>
+    <h2>Про виставу</h2>
+    <p>Чотири жінки прокидаються у кімнаті без вікон. Із уламків спогадів вони складають історії: облога, втеча, втрата й питання, як жити далі. Вистава присвячена людям Маріуполя та всієї України — тиха данина мужності, болю й надії.</p>
+    <img src="../assets/images/scene-tribute.jpg" alt="Сцена з вистави" style="width:100%;border-radius:16px;margin-top:20px;border:1px solid var(--border);">
+  </section>
+
+  <section>
+    <h2>Фотогалерея</h2>
+    <div class="gallery">
+      <img src="../assets/images/scene-bluelight.jpg" alt="Актриса у синьому світлі">
+      <img src="../assets/images/scene-cross.jpg" alt="Жінки з хрестом">
+      <img src="../assets/images/scene-fear.jpg" alt="Сцена страху">
+      <img src="../assets/images/scene-final.jpg" alt="Акторки після вистави">
+    </div>
+  </section>
+
+  <section>
+    <h2>Відео</h2>
+    <div class="videos">
+      <div class="video-card">
+        <video controls autoplay muted playsinline preload="metadata" poster="../assets/images/hero-sky.jpg">
+          <source src="../assets/videos/trailer-1.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Премʼєра</h2>
+    <p><b>8 лютого 2026 року · 17:00</b><br>Rückertgasse 5, 1160 Wien</p>
+    <div style="display:flex;justify-content:center;margin-top:16px;">
+      <iframe src="https://www.google.com/maps?q=R%C3%BCckertgasse+5,+1160+Wien&output=embed" width="100%" height="300" style="border:0;max-width:700px;border-radius:12px;" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <section>
+    <h2>Команда</h2>
+    <div class="team">
+      <div class="member"><strong>Режисер</strong>Олена Еделінскі</div>
+      <div class="member"><strong>За однойменною п’єсою</strong>Неда Неждана</div>
+      <div class="member"><strong>Акторки</strong>Анастасія Георгієв<br>Зоряна Кох<br>Єлизавета Карпенко<br>Анна Бородкіна</div>
+      <div class="member"><strong>Звукорежисер</strong>Михайло Еделінскі</div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="y"></span> Театр «Надих», Відень · <a href="mailto:info@example.com" style="color:#cfe9ff">info@example.com</a>
+  </footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
