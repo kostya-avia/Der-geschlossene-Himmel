@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- DE -->
+  <url>
+    <loc>https://himmel.nadykh.com/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://himmel.nadykh.com/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://himmel.nadykh.com/uk/"/>
+    <lastmod>2025-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- UA -->
+  <url>
+    <loc>https://himmel.nadykh.com/uk/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://himmel.nadykh.com/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://himmel.nadykh.com/uk/"/>
+    <lastmod>2025-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+</urlset>
