@@ -6,11 +6,11 @@
 
   <title>Закрите небо — театр «Надих», Відень</title>
   <meta name="description" content="«Закрите небо» — сучасна драма українського театру «Надих» у Відні. Вистава 08.02.2026 о 17:00 (вхід з 16:30), Rückertgasse 5, 1160 Wien." />
-
   <link rel="canonical" href="https://himmel.nadykh.com/uk/" />
   <link rel="alternate" hreflang="de" href="https://himmel.nadykh.com/" />
   <link rel="alternate" hreflang="uk" href="https://himmel.nadykh.com/uk/" />
 
+  <!-- Open Graph -->
   <meta property="og:title" content="Закрите небо — театр «Надих», Відень" />
   <meta property="og:description" content="Сучасна українська вистава у Відні. 8 лютого 2026, 17:00 (вхід з 16:30), Rückertgasse 5, 1160 Wien." />
   <meta property="og:url" content="https://himmel.nadykh.com/uk/" />
@@ -19,6 +19,43 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="icon" href="../assets/images/LOGO.png" type="image/png">
+
+  <!-- JSON-LD Event (UA) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Закрите небо",
+    "description": "Сучасна драма театру «Надих» у Відні. Чотири жінки, памʼять, втрати й надія.",
+    "startDate": "2026-02-08T17:00:00+01:00",
+    "endDate": "2026-02-08T19:00:00+01:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "isAccessibleForFree": true,
+    "image": ["https://himmel.nadykh.com/assets/images/scene-final.jpg"],
+    "url": "https://himmel.nadykh.com/uk/",
+    "location": {
+      "@type": "Place",
+      "name": "Rückertgasse 5",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rückertgasse 5",
+        "postalCode": "1160",
+        "addressLocality": "Wien",
+        "addressCountry": "AT"
+      }
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "Театр «Надих»",
+      "url": "https://himmel.nadykh.com/uk/"
+    },
+    "performer": {
+      "@type": "TheaterGroup",
+      "name": "Театр «Надих»"
+    }
+  }
+  </script>
 
   <style>
     :root{--bg:#000;--text:#e8ecf0;--muted:#a8b0ba;--accent:#f5d97a;--border:rgba(255,255,255,.1);--max:1100px}
@@ -34,6 +71,7 @@
     .lang{position:fixed;right:18px;top:18px;z-index:21}
     .lang a{color:#fff;background:rgba(0,0,0,.3);padding:6px 12px;border-radius:12px;text-decoration:none;font-size:14px;margin-left:4px}
     .lang a.active{background:rgba(0,0,0,.6)}
+    @media (max-width:640px){.logo-floating img{height:68px}.logo-floating{left:12px;top:12px;padding:8px 10px}}
 
     header{padding:108px 20px 44px}
     .brand{max-width:var(--max);margin:0 auto;background:rgba(0,0,0,.3);border:1px solid var(--border);border-radius:20px;padding:16px 20px;backdrop-filter:blur(2px)}
@@ -47,11 +85,13 @@
     .gallery{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
     .gallery img{width:100%;height:100%;object-fit:cover;border-radius:14px;border:1px solid var(--border)}
 
+    /* video fix (mobile overflow) */
     .videos{max-width:1200px;margin:0 auto;padding:0 16px}
     .video-card{position:relative;aspect-ratio:16/9;border:1px solid var(--border);border-radius:20px;background:#000;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.45);-webkit-mask-image:-webkit-radial-gradient(white, black)}
     .video-card video{display:block;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:inherit}
     @media (max-width:640px){.video-card{border-radius:14px}}
 
+    /* quotes */
     .intro-quotes{max-width:var(--max);margin:28px auto;padding:18px;border-radius:14px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04)}
     .intro-quotes blockquote{margin:0 0 14px;padding:12px 16px;border-left:4px solid var(--accent);background:rgba(255,255,255,.02);border-radius:8px}
     .intro-quotes p{font-size:18px;line-height:1.45}
