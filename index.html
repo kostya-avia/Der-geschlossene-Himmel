@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Der geschlossene Himmel — Theater „Nadykh“, Wien</title>
-  <meta name="description" content="Der geschlossene Himmel — zeitgenössisches Theaterprojekt des ukrainischen Theaters „Nadykh“ in Wien. Aufführung: 08.02.2026, 17:00 (Einlass ab 16:30), Rückertgasse 5, 1160 Wien." />
-
+  <meta name="description" content="Der geschlossene Himmel — zeitgenössisches Theaterprojekt des ukrainischen Theaters „Nadykh“ in Wien. Aufführung 08.02.2026, 17:00 (Einlass ab 16:30), Rückertgasse 5, 1160 Wien." />
   <link rel="canonical" href="https://himmel.nadykh.com/" />
   <link rel="alternate" hreflang="de" href="https://himmel.nadykh.com/" />
   <link rel="alternate" hreflang="uk" href="https://himmel.nadykh.com/uk/" />
 
+  <!-- Open Graph -->
   <meta property="og:title" content="Der geschlossene Himmel — Theater „Nadykh“, Wien" />
   <meta property="og:description" content="Ukrainisches Theater in Wien. Aufführung 08.02.2026, 17:00 (Einlass ab 16:30), Rückertgasse 5, 1160 Wien." />
   <meta property="og:url" content="https://himmel.nadykh.com/" />
@@ -20,20 +20,59 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="icon" href="assets/images/LOGO.png" type="image/png">
 
+  <!-- JSON-LD Event (DE) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Der geschlossene Himmel",
+    "description": "Zeitgenössisches Theaterprojekt des ukrainischen Theaters „Nadykh“ in Wien. Vier Frauen, Erinnerungen, Verlust und Hoffnung.",
+    "startDate": "2026-02-08T17:00:00+01:00",
+    "endDate": "2026-02-08T19:00:00+01:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "isAccessibleForFree": true,
+    "image": ["https://himmel.nadykh.com/assets/images/scene-final.jpg"],
+    "url": "https://himmel.nadykh.com/",
+    "location": {
+      "@type": "Place",
+      "name": "Rückertgasse 5",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rückertgasse 5",
+        "postalCode": "1160",
+        "addressLocality": "Wien",
+        "addressCountry": "AT"
+      }
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "Theater Nadykh",
+      "url": "https://himmel.nadykh.com/"
+    },
+    "performer": {
+      "@type": "TheaterGroup",
+      "name": "Theater Nadykh"
+    }
+  }
+  </script>
+
   <style>
     :root{--bg:#000;--text:#e8ecf0;--muted:#a8b0ba;--accent:#f5d97a;--border:rgba(255,255,255,.1);--max:1100px}
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;overflow-x:hidden}
 
+    /* background */
     .bg-video{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;filter:contrast(105%) saturate(110%)}
     .overlay{position:fixed;inset:0;z-index:-1;background:linear-gradient(to bottom,rgba(0,0,0,.72),rgba(0,0,0,.46))}
 
+    /* header & switches */
     .logo-floating{position:fixed;left:18px;top:18px;z-index:20;background:rgba(255,255,255,.92);border:1px solid rgba(0,0,0,.08);border-radius:18px;padding:10px 12px;box-shadow:0 12px 32px rgba(0,0,0,.35);backdrop-filter:blur(2px)}
     .logo-floating img{height:92px;width:auto;object-fit:contain;display:block}
-
     .lang{position:fixed;right:18px;top:18px;z-index:21}
     .lang a{color:#fff;background:rgba(0,0,0,.6);padding:6px 12px;border-radius:12px;text-decoration:none;font-size:14px;margin-left:4px}
     .lang a.dim{background:rgba(0,0,0,.3)}
+    @media (max-width:640px){.logo-floating img{height:68px}.logo-floating{left:12px;top:12px;padding:8px 10px}}
 
     header{padding:108px 20px 44px}
     .brand{max-width:var(--max);margin:0 auto;background:rgba(0,0,0,.3);border:1px solid var(--border);border-radius:20px;padding:16px 20px;backdrop-filter:blur(2px)}
@@ -47,13 +86,13 @@
     .gallery{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
     .gallery img{width:100%;height:100%;object-fit:cover;border-radius:14px;border:1px solid var(--border)}
 
-    /* Видео: фиксируем «вылазание» на iOS */
+    /* video fix (mobile overflow) */
     .videos{max-width:1200px;margin:0 auto;padding:0 16px}
     .video-card{position:relative;aspect-ratio:16/9;border:1px solid var(--border);border-radius:20px;background:#000;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.45);-webkit-mask-image:-webkit-radial-gradient(white, black)}
     .video-card video{display:block;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:inherit}
     @media (max-width:640px){.video-card{border-radius:14px}}
 
-    /* Цитаты */
+    /* quotes */
     .intro-quotes{max-width:var(--max);margin:28px auto;padding:18px;border-radius:14px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04)}
     .intro-quotes blockquote{margin:0 0 14px;padding:12px 16px;border-left:4px solid var(--accent);background:rgba(255,255,255,.02);border-radius:8px}
     .intro-quotes p{font-size:18px;line-height:1.45}
